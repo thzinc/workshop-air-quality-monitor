@@ -36,13 +36,11 @@ async function initializeAccessories() {
   airQualitySensorService
     .getCharacteristic(Characteristic.PM2_5Density)
     .on(CharacteristicEventTypes.GET, (callback) => {
-      console.debug("PM2_5Density", client.pm2_5Density);
       callback(undefined, client.pm2_5Density);
     });
   airQualitySensorService
     .getCharacteristic(Characteristic.PM10Density)
     .on(CharacteristicEventTypes.GET, (callback) => {
-      console.debug("PM10Density", client.pm10Density);
       callback(undefined, client.pm10Density);
     });
   airQualitySensorService
