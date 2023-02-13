@@ -1,0 +1,3 @@
+[submodule "rpi-sensor-exporter"]
+	path = sensor-exporter/rpi-sensor-exporter
+	url = git@github.com:go-sensors/rpi-sensor-exporter

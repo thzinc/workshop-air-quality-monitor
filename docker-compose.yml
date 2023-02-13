@@ -1,0 +1,33 @@
+version: "2"
+volumes:
+  settings:
+services:
+  rpi-sensor-exporter:
+    build: rpi-sensor-exporter
+    restart: always
+    privileged: true
+    labels:
+      io.balena.features.dbus: "1"
+      io.balena.features.firmware: "1"
+      io.balena.features.kernel-modules: "1"
+    ports:
+      - 9000:9000
+    environment:
+      EXPORTER_METRICS_SERVER_ADDR: ":9000"
+      EXPORTER_LOG_LEVEL: "warn"
+      EXPORTER_ASAIRAHT10_ENABLED: "true"
+      EXPORTER_PLANTOWERPMS5003_ENABLED: "true"
+      EXPORTER_SENSIRONSGP30_ENABLED: "true"
+  homekit:
+    restart: always
+    build: ./homekit
+    environment:
+      API_BASE_URL: "http://localhost:9000/metrics"
+      HOMEKIT_PIN_CODE: "684-35-167"
+      HOMEKIT_INTERFACE: "wlan0"
+      HOMEKIT_PORT: "47129"
+    privileged: true
+    labels:
+      io.balena.features.dbus: "1"
+      io.balena.features.firmware: "1"
+    network_mode: host

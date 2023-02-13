@@ -1,0 +1,15 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-alpine-node:14-latest-build as build
+WORKDIR /app
+
+COPY ./package.json ./
+COPY ./package-lock.json ./
+RUN npm install
+
+COPY . ./
+
+FROM balenalib/%%BALENA_MACHINE_NAME%%-alpine-node:14-latest-run
+
+WORKDIR /app
+COPY --from=build /app /app
+
+CMD ["npm", "start"]

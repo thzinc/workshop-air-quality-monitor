@@ -1,0 +1,16 @@
+{
+  "name": "homekit",
+  "version": "1.0.0",
+  "description": "Support for Apple HomeKit",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel James <daniel@thzinc.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.2.0",
+    "hap-nodejs": "^0.11.0"
+  }
+}

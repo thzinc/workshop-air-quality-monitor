@@ -1,0 +1,19 @@
+name: workshop-air-quality-monitor
+type: sw.application
+description: >-
+  Monitor workshop air quality
+data:
+  applicationEnvironmentVariables:
+  applicationConfigVariables:
+    - RESIN_HOST_CONFIG_dtoverlay: "pi3-disable-bt"
+    - RESIN_HOST_CONFIG_enable_uart: 1
+    - RESIN_HOST_CONFIG_dtparam: '"i2c_arm=on","spi=on","audio=on"'
+  defaultDeviceType: raspberry-pi
+  supportedDeviceTypes:
+    - raspberry-pi
+    - raspberry-pi2
+    - raspberrypi0-2w-64
+    - raspberrypi3
+    - raspberrypi3-64
+    - raspberrypi4-64
+version: 0.0.1
